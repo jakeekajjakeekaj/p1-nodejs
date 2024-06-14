@@ -1,6 +1,10 @@
 body {
   /* background-color: #222;
   color: #eee; */
+  background-color: #202020;
+  color: #f0f0f0;
   font-family: sans-serif;
   box-sizing: border-box;
+  height: 100dvh;
 }
+
