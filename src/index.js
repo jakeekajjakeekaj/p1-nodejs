@@ -5,6 +5,7 @@ import express from 'express';  // Esto es posible debido al "type" : "module" d
 import { dirname, join } from 'path'; // Sirve para obtener la funcion dirname del módulo path, de esta manera con dirname se puede obtener el nombre del directorio de una ruta de archivo dada
 // join no le toma importancia a la concatenación sin importar si estamos en windows, linux o mac para el tema de las direcciones al usar / ó \
 import { fileURLToPath } from 'url';  // Importa la función del módulo y se encarga de convertir una URL archivo en una ruta de archivo del sistema
+import indexRoutes from './routes/index.js'; // Importa las rutas que se encuentran en la carpeta routes para así poder enrutar
 
 const app = express();
 
@@ -16,10 +17,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));  // import.meta.url c
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'ejs'); // View Engine sería un motor de vistas, que básicamente es para extender el HTML dentro del JS
 
+// BEGIN ENRUTADOR
 // app.get('/', (req, res)=> res.send("Hello World"));
-app.get('/', (req, res)=> res.render('index.ejs'));
-app.get('/about', (req, res)=> res.render('about.ejs'));
-app.get('/contact', (req, res)=> res.render('contact.ejs'));
+// LOS ENRUTADORES SE ENCUENTRAN DENTRO DE LA CARPETA routes
+// app.use es un middleware que en pocas palabras se puede decir que se está insertando el código de otro lado pero así podemos mantener todo más ordenado
+app.use(indexRoutes);
+// ENDS ENRUTADOR
 
-app.listen(3000);
-console.log("Server is listening on port", 3000);
+// De esta manera estamos indicando que se usará la carpeta indicada para los estilos css, se usar __dirname para evitar nombrar toda la ruta y así usar el __dirname ya generado y como segundo parámetro indicamos que concatenamos public para así ya tener nuestra ruta; de esta manera ahorita no se miestran afectadas las páginas creadas, pero si en el navegador escribimos la ruta/main.css ahora sí aparece el efecto
+app.use(express.static(join(__dirname, 'public')));
+
+// El primero sería en caso de que ya exista un servidor (que ya lo tengamos alojado en algún sitio, y de lo contrario sería el puerto 3000)
+const PUERTO = process.env.PORT || 3000;
+
+// El primer parámetro indica el puerto que se va a escuchar mientras que el segundo vendría siendo una función callback
+app.listen(PUERTO, ()=> console.log(`Server is listengin in port ${PUERTO}...`));

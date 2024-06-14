@@ -25,3 +25,9 @@
 // De esta manera ahora dentro de index.js podemos escribir:
 // import express from 'express'
 // quitando así el require
+
+// PARTIALS es un concepto usado para así tener navegación en nuestras rutas, es decir para evitar tener que estar modificando la URL, con esto podemos estar teniendo una navegación en todas nuestras rutas
+
+// Para darle estilo a nuestras vistas, tendremos que crear una carpeta en src llamada public y dentro estaremos alojando a nuestros css
+
+// Hasta ahorita ya se ha trabajado con los partials y ya se añadieron dentro de las views para así tener la misma estructura del main.css, sin embargo para ahorrar tiempo se trabajará con BOOTSTRAP

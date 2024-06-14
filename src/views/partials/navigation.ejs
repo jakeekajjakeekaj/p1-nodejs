@@ -1,0 +1,41 @@
+<!-- <nav>
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/contact">Contact</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+  </ul>
+</nav> -->
+
+<!-- bg-dark pone el color de fondo obscuro, mientras que el navbar-dark invierte el color de letra para que este aparezca blanco y contraste con el fondo -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <!-- El container-fluid sería como el space-between, es decir que pone hasta el extremo todo, mientras que el container solo es como el space-around, en donde si deja un espacio en los extremos, o también se podría decir que es como setear un margin left y right -->
+  <div class="container">
+    <a class="navbar-brand" href="#">NodeJS Website</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- el ms-auto se encarga de darle un margen automático, esto hace que las palabras se vayan hasta el otro extremo -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

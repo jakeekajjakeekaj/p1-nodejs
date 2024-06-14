@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAGINA</title>
+  <!-- con el <%= title %> estamos pasando codigo desde el back hacia el front, es decir que desde la carpeta routes sale el mensaje que se muetsra en nuestro title, para esto se instaló ejs, para así extender el front con el back -->
+  <title><%= title %></title>
+  <!-- De esta manera indicamos ahora sí el estilo css, aparte en la dirección se coloca el / desde un inicio ya que es una dirección que no llega desde los archivos, sino que llega desde el servidor -->
+  <!-- <link rel="stylesheet" href="/main.css"> -->
+  <!-- Se podría dejar de esta manera, pero para evitar repetición de código en todas las demas rutas, mejor se hará un partials -->
+  <%- include('partials/head') %>
 </head>
 <body>
-  <h1>HELLO WORLD</h1>
+  
+  <!-- El - se usa para indicar que se interpretará el código, recordemos que esto es posible porque se instaló ejs -->
+   <!-- Así se está insertando el código de Navigation.ejs -->
+  <%- include('partials/navigation.ejs') %>
+
+  <!-- Main Content -->
+   <header>
+      <img src="/img/logo-lego.png" alt="Logo">
+   </header>
+
+  <%- include('partials/footer.ejs') %>
+
 </body>
 </html>
